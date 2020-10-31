@@ -2,18 +2,15 @@ package com.in28minutes.spring.basics.springin5steps;
 
 public class BinarySearchImpl {
 	
-	
 
 	public int binarySearch(int[] numbers, int numberToSearchFor) {
 
-		// Implementing Sorting Logic
+		BubbleSortAlgorithm bubbleSortAlgorithm = new BubbleSortAlgorithm();
 		
-		// Bubble Sort Algorithm 
-		// Quick Sort Algorithm
-		
+		int[] sortedNumbers = bubbleSortAlgorithm.sort(numbers);
+	
 		// Search the array
 		
-		// Return the result
 		return 3;
 	}
 }
