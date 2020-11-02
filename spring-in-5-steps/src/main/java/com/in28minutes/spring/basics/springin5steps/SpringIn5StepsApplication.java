@@ -7,17 +7,15 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class SpringIn5StepsApplication {
 
+	// What are the beans?
+	// What are the dependencies of a bean?
+	// Where to search for beans?
 	public static void main(String[] args) {
-		/*
-		 * The objective is understand the concepts of tight coupling and dependency
-		 * injection
-		 */
-		
-		// if you wanna change quickSort all that i need to do is change it here.
+	
+		// 느슨한 결합 (생성자를 통한 주입)
 		BinarySearchImpl binarySearch = new BinarySearchImpl(new QuickSortAlgorithm());
 		
 		int result = binarySearch.binarySearch(new int[] {12,4,6}, 3);
-		//com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@7de26db8
 		
 		System.out.println(result);
 
