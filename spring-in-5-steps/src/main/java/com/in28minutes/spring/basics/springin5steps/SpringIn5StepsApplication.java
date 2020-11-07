@@ -20,7 +20,14 @@ public class SpringIn5StepsApplication {
 		// 스프링이 대신 와이어링 한 것
 		ConfigurableApplicationContext applicationContext = 
 				SpringApplication.run(SpringIn5StepsApplication.class, args); //<- by default
+		
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+		
+		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+		
+		System.out.println(binarySearch);
+		System.out.println(binarySearch1);
+		
 		int result = binarySearch.binarySearch(new int[] {12,4,6}, 3);
 		System.out.println(result);
 		//com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@43c67247
