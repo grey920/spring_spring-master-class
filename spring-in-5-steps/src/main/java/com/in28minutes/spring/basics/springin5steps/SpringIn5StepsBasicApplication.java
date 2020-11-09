@@ -2,11 +2,12 @@ package com.in28minutes.spring.basics.springin5steps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.in28minutes.spring.basics.springin5steps.basic.BinarySearchImpl;
+
 @SpringBootApplication
-public class SpringIn5StepsApplication {
+public class SpringIn5StepsBasicApplication {
 
 	// What are the beans? => @Component
 	// What are the dependencies of a bean? => @Autowired
@@ -19,7 +20,7 @@ public class SpringIn5StepsApplication {
 		
 		// 스프링이 대신 와이어링 한 것
 		ConfigurableApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsApplication.class, args); //<- by default
+				SpringApplication.run(SpringIn5StepsBasicApplication.class, args); //<- by default
 		
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 		

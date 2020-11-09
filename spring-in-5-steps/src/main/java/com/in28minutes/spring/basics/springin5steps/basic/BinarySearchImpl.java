@@ -1,4 +1,4 @@
-package com.in28minutes.spring.basics.springin5steps;
+package com.in28minutes.spring.basics.springin5steps.basic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/* Whar would happen if the dependency of a Singleton bean is a Prototype bean?*/
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
 	@Autowired
 	@Qualifier("quick")
