@@ -1,38 +1,40 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import com.in28minutes.spring.basics.springin5steps.basic.BinarySearchImpl;
 
-@SpringBootApplication
+// Spring에서 application context를 정의할 때 @Configuration을 사용함
+@Configuration
+//@ComponentScan만 쓰면 현재 패키지를 컴포넌트 스캔. 
+@ComponentScan("com.in28minutes.spring.basics.springin5steps")
 public class SpringIn5StepsBasicApplication {
 
 	// What are the beans? => @Component
 	// What are the dependencies of a bean? => @Autowired
 	// Where to search for beans? => No need
 	public static void main(String[] args) {
-	
-		//우리가 직접 빈을 만들어서 와이어링 한 버전
-		//BinarySearchImpl binarySearch = new BinarySearchImpl(new QuickSortAlgorithm());
-		//Application Context
-		
-		// 스프링이 대신 와이어링 한 것
+
+		// 스프링부트는 SpringApplication클래스를 사용하고, 스프링은 AnnotationConfigApplicationContext를 사용한다. 
 		ConfigurableApplicationContext applicationContext = 
-				SpringApplication.run(SpringIn5StepsBasicApplication.class, args); //<- by default
-		
-		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
-		
-		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
-		
+				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
+
+		BinarySearchImpl binarySearch = applicationContext
+				.getBean(BinarySearchImpl.class);
+
+		BinarySearchImpl binarySearch1 = applicationContext
+				.getBean(BinarySearchImpl.class);
+
 		System.out.println(binarySearch);
 		System.out.println(binarySearch1);
-		
-		int result = binarySearch.binarySearch(new int[] {12,4,6}, 3);
+
+		int result = binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
 		System.out.println(result);
-		//com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@43c67247
-		//3
+		// com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@43c67247
+		// 3
 
 	}
 
