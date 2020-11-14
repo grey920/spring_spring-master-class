@@ -18,9 +18,8 @@ public class SpringIn5StepsBasicApplication {
 	// Where to search for beans? => No need
 	public static void main(String[] args) {
 
-		// 스프링부트는 SpringApplication클래스를 사용하고, 스프링은 AnnotationConfigApplicationContext를 사용한다. 
-		ConfigurableApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
+		try(AnnotationConfigApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class)) {
 
 		BinarySearchImpl binarySearch = applicationContext
 				.getBean(BinarySearchImpl.class);
@@ -33,9 +32,8 @@ public class SpringIn5StepsBasicApplication {
 
 		int result = binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
 		System.out.println(result);
-		// com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@43c67247
-		// 3
-
+		applicationContext.close();
+		}
 	}
 
 }
