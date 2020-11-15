@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-//@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+// 데이터베이스로부터 데이터를 가져오므로 Repository어노테이션을 붙인다.
+@Repository
 public class PersonDAO {
 	
 	@Autowired

@@ -5,8 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-@Component
+import org.springframework.stereotype.Service;
+// 비즈니스 로직이므로 @Service를 사용한다.
+@Service
 public class BinarySearchImpl {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
