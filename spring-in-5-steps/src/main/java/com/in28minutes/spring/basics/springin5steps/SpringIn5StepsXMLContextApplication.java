@@ -1,24 +1,30 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.in28minutes.spring.basics.springin5steps.xml.XmlPersonDAO;
 
-// Spring에서 application context를 정의할 때 @Configuration을 사용함
-@Configuration
-@ComponentScan
 public class SpringIn5StepsXMLContextApplication {
-	public static void main(String[] args) {
 
-		// xml설정 파일을 이용해서 실행하기 - ClassPathXmlApplicationContext 이용
+	private static Logger LOGGER = LoggerFactory
+			.getLogger(SpringIn5StepsXMLContextApplication.class);
+
+	public static void main(String[] args) {
+		
 		try (ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"applicationContext.xml")) {
+			
+			// 어떤 application context로부터 빈들이 실행되는지 알아낸다. 
+			LOGGER.info("Beans Loaded -> {}", 
+					(Object)applicationContext.getBeanDefinitionNames() );
+			// Beans Loaded -> [xmlJdbcConnection, xmlPersonDAO] 
 
 			XmlPersonDAO personDao = applicationContext.getBean(XmlPersonDAO.class);
-			System.out.println(personDao);
-			System.out.println(personDao.getXmlJdbcConnection()); // auto-wiring 잘 됐는지 확인
+		
+			LOGGER.info("{} {}", 
+					personDao, personDao.getXmlJdbcConnection());
 		}
 	}
 
