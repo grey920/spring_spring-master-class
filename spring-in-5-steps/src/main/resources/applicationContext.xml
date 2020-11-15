@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 수동으로 빈을 생성하고 DI 하기 -->
+
+
+	<!-- 해당 클래스에서 우클릭 - copy Qualified Name해서 class부분에 붙여넣기 -->
+	<bean id="xmlJdbcConnection"
+		class="com.in28minutes.spring.basics.springin5steps.xml.XmlJdbcConnection">
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+
+	<bean id="xmlPersonDAO"
+		class="com.in28minutes.spring.basics.springin5steps.xml.XmlPersonDAO">
+		<!-- xmlJdbcConnection과 auto-wiring하기 위한 설정 -->
+		<property name="xmlJdbcConnection" ref="xmlJdbcConnection" />
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>
