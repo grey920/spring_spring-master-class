@@ -1,12 +1,14 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
+//@SpringBootTest
 class SpringIn5StepsBasicApplicationTests {
 
-	@Test
+    @Test
 	void contextLoads() {
 	}
 
