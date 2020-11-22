@@ -6,11 +6,15 @@
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
-	<!-- 수동으로 빈을 생성하고 DI 하기 -->
 
-	<context:component-scan base-package="com.in28minutes.spring.basics" />
+	<!-- unit test를 작성할때도 application context xml 파일을 이용한다.
+		오버라이드해서 사용하고 싶다면
+		위치는 src/test 밑에 resources 폴더를 생성하고 그 안에 ~~~Context.xml
+	 -->
 	
-	<!-- unit test를 작성할때도 application context xml 파일을 이용한다.  -->
+	<!-- test 컨텍스트에서만 쓰고 싶은게 있다면 applicationContext를 오버라이드 한다. -->
+	<import resource="classpath:applicationContext.xml"/>
+	<!-- 오버라이드 하는 곳 -->
 
 	
 	<!-- more bean definitions go here -->
